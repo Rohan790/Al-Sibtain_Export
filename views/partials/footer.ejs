@@ -1,0 +1,143 @@
+<footer>
+    <div class="container text-wrap text-break">
+        <div class="row">
+            <div class="col-lg-5 col-md-3 col-sm-6 col-xs-12 mt-5">
+                <div class="footer_col m-3 mx-sm-0">
+                    <h3 class="my-3 mb-4">Al-Sibtain</h3>
+                    <p>A Global Designer and Manufacturer & exporter of Home Decoration Products.</p>
+                    <p class="d-none d-lg-block">Al-Sibtain has its own production unit in Moradabad and Also
+                        India’s one of the
+                        fastest growing handicrafts export company, offering customers every
+                        choice in terms of materials. </p>
+                    <div class="social_links d-flex">
+                        <a href="https://www.facebook.com/Alsibtainexports"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/alsibtainexports/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/sibtainexports"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x390afbfeb15ca75b:0x82d74039d60a4149?source=g.page.m"><i class="fas fa-map-marker-alt"></i></a>
+                        <a href="https://www.linkedin.com/in/al-sibtain-exports-bb0231211/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 mt-5">
+                <div class="footer_col m-3 mx-sm-0">
+                    <h5 class="my-3 mb-4">Other Pages</h5>
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/products">Products</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 mt-5">
+                <div class="footer_col m-3 mx-sm-0">
+                    <h5 class="my-3 mb-4">Quick Links</h5>
+                    <a href="/products/Urns">Urns</a>
+                    <a href="/products/Decor">Decor</a>
+                    <a href="/products/Furniture">Furniture</a>
+                    <a href="/products/Tableware">Tableware</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 mt-5">
+                <div class="footer_col m-3 mx-sm-0">
+                    <h5 class="my-3 mb-4">Contact Us</h5>
+                    <p>Address: Reti street, Moradabad - 244001</p>
+                    <p class="d-lg-flex align-items-center">Founder -&nbsp;<i class="fab fa-whatsapp"></i>&nbsp;&nbsp;<a class="mb-0" href="tel:+91 ‎82797 56238">‎+91 82797 56238</a></p>
+                    <p class="d-lg-flex align-items-center">Co-Founder -&nbsp;<i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<a class="mb-0" href="tel:+91 ‎89099 27797">+91 89099 27797 </a></p>
+                    <a href="mailto:info@alsibtainexports.com">info@alsibtainexports.com</a>
+                    <a href="mailto: danish@alsibtainexports.com">danish@alsibtainexports.com</a>
+                    <a href="mailto: shujat@alsibtainexports.com">shujat@alsibtainexports.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright py-3">
+        <div class="container d-md-flex justify-content-between d-block">
+            <p>Al-Sibtain Exports - All Rights Reserved. </p>
+            <p>Developed by Fun-Time Coder, Powered by <a href="https://www.diginext.info" target="_blank">Diginext</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="
+    crossorigin="anonymous"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous"></script>
+
+<script>
+    const dropdown = $(".dropdown");
+    const dropdownToggle = $(".dropdown-toggle");
+    const dropdownMenu = $(".dropdown-menu");
+    const showClass = "show";
+
+    $(window).on("load resize", function () {
+        if (this.matchMedia("only screen").matches) {
+            dropdown.hover(
+                function () {
+                    const $this = $(this);
+                    $this.addClass(showClass);
+                    $this.find(dropdownToggle).attr("aria-expanded", "true");
+                    $this.find(dropdownMenu).addClass(showClass);
+                },
+                function () {
+                    const $this = $(this);
+                    $this.removeClass(showClass);
+                    $this.find(dropdownToggle).attr("aria-expanded", "false");
+                    $this.find(dropdownMenu).removeClass(showClass);
+                }
+            );
+        } else {
+            dropdown.off("mouseenter mouseleave");
+        }
+    });
+
+    $(document).ready(function () {
+
+        $('.image-container').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        })
+    });
+
+    anime({
+        targets: '.row svg',
+        translateY: 10,
+        autoplay: true,
+        loop: true,
+        easing: 'easeInOutSine',
+        direction: 'alternate'
+    });
+
+    anime({
+        targets: '#zero',
+        translateX: 10,
+        autoplay: true,
+        loop: true,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        scale: [{
+            value: 1
+        }, {
+            value: 1.4
+        }, {
+            value: 1,
+            delay: 250
+        }],
+        rotateY: {
+            value: '+=180',
+            delay: 200
+        },
+    });
+</script>

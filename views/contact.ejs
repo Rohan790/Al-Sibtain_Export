@@ -1,0 +1,106 @@
+<%- include("partials/header") -%>
+
+<div class="content">
+    <div class="hero_contact_area hero_area">
+        <h2>Contact Us</h2>
+    </div>
+
+    <div class="contact_section_one">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-5 col-sm-12 justify-content-end">
+                    <div class="contact ms-0 ms-md-5">
+                        <h2 class="mb-4">Write Us</h2>
+                        <p>We are continually trying to meet people who have an awesome state of mind, are enthusiastic
+                            about handicraft Industrty and have an extraordinarily hard-working attitude.</p>
+                        <form action="/enquiryMail" method="POST">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="userName" placeholder="John Doe" required
+                                    pattern="[a-zA-Z\s]+" title="Please use alphabets only.">
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" name="userPhone" placeholder="+91 9045-XXX-XXX"
+                                    pattern="[0-9]{10}" required title="Phone number is not valid.">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="email" class="form-control" name="userEmail"
+                                    placeholder="yourname@example.com" aria-describedby="emailHelp"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                    title="Please write correct email address." required>
+                                <!-- pattern from w3schools.com -->
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <textarea id="contactUsMessage" class="form-control" rows="10" placeholder="Message"
+                                    name="userMessage" style="width: 100%;"></textarea>
+                            </div>
+                            <button type="submit" class="butn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-7 col-sm-12 justify-content-end mt-md-0 mt-4 h-100">
+                    <div class="contact ms-0 ms-md-5">
+                        <h2 class="mb-4">Offices</h2>
+                        <p>Reach us over here.</p>
+                        <div class="row mt-5">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="office_block">
+                                    <div class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="details">
+                                        <h5>Address</h5>
+                                        <p>Reti street moradabad 244001</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="office_block">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="details">
+                                        <h5>Email</h5>
+                                        <p class="mb-0">info@alsibtainexports.com</p>
+                                        <p class="mb-0">danish@alsibtainexports.com</p>
+                                        <p class="mb-0">shujat@alsibtainexports.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="office_block">
+                                    <div class="icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="details">
+                                        <h5>Phone</h5>
+                                        <p class="d-lg-flex align-items-center mb-lg-0">Founder -&nbsp;<i class="fab fa-whatsapp"></i>&nbsp;&nbsp;+91 82797 56238</p>
+                                        <p class="d-lg-flex align-items-center">Co-Founder -&nbsp;<i class="fas fa-phone-alt"></i>&nbsp;&nbsp;+91 89099 27797</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="mb-4">Locate Us</h2>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <div class="office_block">
+                                    <iframe width="100%" height="212px" id="gmap_canvas"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3495.0302435627264!2d78.77486581508727!3d28.837959582337206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afbfeb15ca75b%3A0x82d74039d60a4149!2sAL-SIBTAIN%20EXPORTS!5e0!3m2!1sen!2sin!4v1620846678934!5m2!1sen!2sin"
+                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,243 @@
+<%- include("partials/header") -%>
+
+<div class="content">
+    <div class="hero_contact_area hero_area">
+        <h2>Uploads</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Creation -->
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">Create Category</h2>
+                <form action="/createCategory" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3 form_fields">
+                        <label for="createCategories">Category Name</label>
+                        <input list="createCategory" class="form-control" name="createCategory" id="createCategories"
+                            required pattern="[a-zA-Z0-9\s]+" title="Use Alphanumeric Letters Only.">
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="logo">Category Logo</label>
+                        <input type="file" class="form-control" name="itemAvatar" id="logo" required accept="image/*">
+                    </div>
+
+                    <button type="submit" class="butn">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">Create Sub-Category</h2>
+                <form action="/createSubCategory" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3 form_fields">
+                        <label for="createSubCategory">Select Category</label>
+                        <select id="createSubCategory" class="form-control" name="categoryName" required>
+                            <% if(!categorylist.length){ %>
+                                <option disabled>Create New Category</option>
+                            <% } %>
+
+                            <% categorylist.forEach((category) =>{ %>
+                                <option value="<%= category.categoryName %>"><%= category.categoryName %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="subCateName">Sub-Category Name</label>
+                        <input type="text" class="form-control" name="subCateName" pattern="[a-zA-Z0-9\s]+"
+                            id="subCateName" title="Use Alphanumeric Letters Only.">
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="subCateLogo">Sub-Category Logo</label>
+                        <input type="file" class="form-control" name="subCateLogo" id="subCateLogo" accept="image/*">
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="subCateGallery">Sub-Category Gallery</label>
+                        <input type="file" class="form-control" name="subCateGallery" id="subCateGallery" accept="image/*"
+                            multiple>
+                    </div>
+                    <button type="submit" class="butn">Submit</button>
+                </form>
+            </div>
+
+            <!-- Updation -->
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">Update Category</h2>
+                <form action="/updateCategory" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3 form_fields">
+                        <label for="updateCategory">Select Category</label>
+                        <select id="updateCategory" class="form-control" name="updateCategoryName" required>
+                            <% if(!categorylist.length){ %>
+                                <option disabled>Create New Category</option>
+                            <% } %>
+
+                            <% categorylist.forEach((product) =>{ %>
+                                <option value="<%= product.categoryName %>"><%= product.categoryName %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="utitle">Update Name</label>
+                        <input type="text" class="form-control" name="updateItemTitle" pattern="[a-zA-Z0-9\s]+"
+                            id="utitle" title="Use Alphanumeric Letters Only.">
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="ulogo">Update Logo</label>
+                        <input type="file" class="form-control" name="updateItemAvatar" id="ulogo" accept="image/*">
+                    </div>
+
+                    <button type="submit" class="butn">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">Update Sub-Category</h2>
+                <form action="/updateSubCategory" method="POST" enctype="multipart/form-data">
+                    <!-- <div class="mb-3 form_fields">
+                        <label for="updateSubCategory">Select Category</label>
+                        <select id="updateSubCategory" class="form-control" name="categoryName" required>
+                            <% if(!categorylist.length){ %>
+                            <option disabled>Create New Category</option>
+                            <% } %>
+
+                            <% categorylist.forEach((product) =>{ %>
+                            <option value="<%= product.categoryName %>"><%= product.categoryName %></option>
+                            <% }); %>
+                        </select>
+                    </div> -->
+
+                    <div class="mb-3 form_fields">
+                        <label for="SubCategory">Select Sub-Category</label>
+                        <select id="SubCategory" class="form-control" name="subCategoryName" required>
+                            <% categorylist.forEach( product =>{ %>
+                                <% product.subCategory.forEach((sub) =>{ %>
+                                    <option value="<%= product.categoryName %>/<%= sub.productName %>"><%= sub.productName %></option>
+                                <% }); %>
+                            <% }); %>    
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="ustitle">Update Name</label>
+                        <input type="text" class="form-control" name="updateSubCateTitle"
+                            id="ustitle">
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="uslogo">Update Logo</label>
+                        <input type="file" class="form-control" name="updateSubCateAvatar" id="uslogo" accept="image/*">
+                    </div>
+
+                    <div class="mb-3 form_fields">
+                        <label for="usgallery">Update Gallery</label>
+                        <input type="file" class="form-control" name="updateSubCateGallery" id="usgallery" accept="image/*"
+                            multiple>
+                    </div>
+                    <button type="submit" class="butn">Submit</button>
+                </form>
+            </div>
+
+            <!-- Deletion -->
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">Delete Category</h2>
+                <form action="/deleteCategory" method="POST">
+                    <div class="mb-3 form_fields">
+                        <label for="deleteCategory">Select Category</label>
+                        <select id="deleteCategory" class="form-control" name="deleteCategoryName" required>
+                            <% if(!categorylist.length){ %>
+                                <option disabled>Create New Category</option>
+                            <% } %>
+
+                            <% categorylist.forEach((product) =>{ %>
+                            <option value="<%= product.categoryName %>"><%= product.categoryName %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="butn">Delete</button>
+                </form>
+            </div>
+
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">Delete Sub-Category</h2>
+                <form action="/deleteSubCategory" method="POST">
+                    <div class="mb-3 form_fields">
+                        <label for="deleteSubCategory">Select Sub-Category</label>
+                        <select id="deleteSubCategory" class="form-control" name="deleteSubCategoryName" required>
+                            <% if(!categorylist.length){ %>
+                                <option disabled>Create New Category</option>
+                            <% } %>
+
+                            <% categorylist.forEach( product =>{ %>
+                                <% product.subCategory.forEach((sub) =>{ %>
+                                    <option value="<%= product.categoryName %>/<%= sub.productName %>"><%= sub.productName %></option>
+                                <% }); %>
+                            <% }); %>             
+                        </select>
+                    </div>
+
+                    <button type="submit" class="butn">Delete</button>
+                </form>
+            </div>
+
+            <!-- View Sub-Category -->
+            <div class="col-md-6 col-sm-12 p-4">
+                <h2 class="mb-4">View Sub-Category</h2>
+                <% var selectedCategory;%>
+
+                <form action="/viewCategory" method="POST">
+                    <div class="mb-3 form_fields">
+                        <label for="viewCategory">Select Sub-Category</label>
+                        <select id="viewSubCategory" class="form-control" name="viewCategoryName" required>
+                            <% if(!categorylist.length){ %>
+                                <option disabled>Create New Category</option>
+                            <% } %>
+
+                            <% categorylist.forEach( product =>{ %>
+                                <% product.subCategory.forEach((sub) =>{ %>
+                                    <option value="<%= product.categoryName %>/<%= sub.productName %>"><%= sub.productName %></option>
+                                <% }); %>
+                            <% }); %>                                                       
+                        </select>
+                    </div>
+                    <button type="submit" class="butn">View Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function onChange() {
+        let catName = document.getElementById('viewCategory').value;
+        let selected=true;
+        let selectedCategory = catName;
+    
+
+
+        
+
+
+        // var xhttp = new XMLHttpRequest();
+
+        // xhttp.onreadystatechange = function(res) {
+        //     let resp = res.srcElement.response;
+        //     let respArray = JSON.parse(resp);
+
+        //     // respArray.forEach(receivedResponse => {
+        //     //     console.log(receivedResponse.productName);
+        //     //     // document.getElementById("subCategoryOptions").innerHTML = receivedResponse.productName;
+        //     // });
+        // };
+        // xhttp.open("GET", "/sub_cat/"+ catName, true);
+        // xhttp.send();
+    }
+</script>
+
+
+<%- include("partials/footer") -%>
+

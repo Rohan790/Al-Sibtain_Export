@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Slab&display=swap');
+
+
+$primary_color: #B78E56;
+$light_primary_color: #b78e562e;
+
+$secondary_color: #2F343C;
+$secondary_dark_color: #262A31;
+
+$background_color: #F8F4F3;
+// $background_color: #171717;
+
+$background_white: #ffff;
+$hero_background_color: #130d06a6;
+
+$heading_color: #443A39;
+$paragraph_color: #333;
+$paragraph_color_2 :#726964;
+$disabled_paragraph_color: #9C938D;
+
+
+$dark_bg_heading_color: #FFFFFF;
+$dark_bg_paragraph_color:#E3DBD0;
+
+$icon_color: $background_white;
+ 
+$hover_color: #8C6530;
+
+
+.content{
+    min-height: 58vh;
+}
+
+
+button,
+a[type=button] {
+    color: $dark_bg_heading_color;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 15px 40px;
+    background-color: $primary_color;
+    border: 0 solid $hover_color;
+    border-right-width: 5px;
+    transition: 0.5s;
+
+    &.butn:hover {
+        background-color: $hover_color;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $primary_color;
+
+    &:hover{
+        color: $hover_color;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    color: $heading_color;
+}
+
+p{
+    color: $paragraph_color;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+*{
+    -webkit-user-drag: none;
+}
+
+::selection{
+    background-color: $primary_color;
+    color: $dark_bg_heading_color;
+}
+
+img{
+    user-select: none;
+}
+
+h2{
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 10%;
+        min-width: 50px;
+        height: 4px;
+        background-color: #B78E56;
+        top: 50%;
+        margin-left: 2%;
+    } 
+}
+
+
+// header
+
+.navbar-brand, .dropdown-header{
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 1.8px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    img{
+        height: 60px;
+        object-fit: contain;
+    }
+}
+
+.navbar-toggler {
+    border: none;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.nav-link, .dropdown-item{
+    position: relative;
+    color: $paragraph_color;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    white-space: normal;
+    font-weight: bold;
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $primary_color;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+    }
+
+    &:hover{
+        color: black !important;
+        background: transparent;
+    }
+
+
+    &:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.dropdown-menu {
+    min-width: 15rem;
+
+    .dropdown-item{        
+        &::after{
+            display: none;
+        }
+    }
+}
+
+
+// Footer
+footer{
+    background-color: $secondary_color;
+    
+    h5, h3{
+        color: $dark_bg_heading_color;
+        font-weight: 400;
+        position: relative;
+        margin-bottom: 2%;
+        &::after{
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 4px;
+            background-color: #B78E56;
+            bottom: -40%;
+            left: 0;
+        }
+    }
+
+    p{
+        color: $dark_bg_paragraph_color;
+    }
+
+    a{
+        color: $dark_bg_paragraph_color;
+        display: block;
+        margin-bottom: 4%;
+        transition: 0.5s;
+        &:hover{
+            color: $primary_color;
+            text-decoration: none;
+        }
+    }
+
+    .social_links{
+        a{
+            width: 20%;
+            max-width: 40px;
+            height: 40px;
+            background-color: $primary_color;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2%;
+            i{
+                transition: 0.1s;
+                &:hover{
+                    color: $secondary_color;
+                }
+            }
+        }
+    }
+
+    .copyright{
+        background-color: $secondary_dark_color;
+
+        a{
+            margin: 0;
+            display: inline-block;
+            color: $dark_bg_paragraph_color;
+        }
+
+        p{
+            margin: 0;
+            color: $disabled_paragraph_color;
+        }
+    }
+}
+
+// Service
+.service{
+    min-height: 58vh;
+    background-color: $background_color;
+    h2{
+        width: max-content;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 20%;
+            height: 4px;
+            background-color: #B78E56;
+            top: 50%;
+            left: -22%;
+            margin-right: 2%;
+        }
+        &::after{
+            width: 20%;
+            min-width: auto;
+        }
+    }
+
+    .service_block{
+        transition: 0.5s;
+        background-color: $background_white;
+        border: 1px solid $disabled_paragraph_color;
+        border-radius: 4px;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+
+        &:hover .service_img{
+            transform: scale(1.1);
+        }
+
+        &:hover a{
+            color: $primary_color;
+        }
+
+        .service_img{
+            width: 40%;
+            display: block;
+            margin: auto;
+            margin-bottom: 4%;
+            transition: 0.5s;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 5px;
+            }
+        }
+
+        h4{
+            text-transform: capitalize;
+        }
+
+        a{
+            color: $paragraph_color_2;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .row:hover .service_block:not(:hover){
+        filter: blur(2px) opacity(30%);
+        transform: scale(1);
+    }
+}
+
+
+@media (orientation:Portrait){
+    .nav-link::after{
+        display: none;
+    }
+}

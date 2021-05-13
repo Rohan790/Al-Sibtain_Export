@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Al-Sibtain || Home Decoration Website</title>
+
+    <!-- Font-Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <!-- Bootstrap V-5.0 CSS CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css"
+        integrity="sha512-aqT9YD5gLuLBr6ipQAS+72o5yHKzgZbGxEh6iY8lW/r6gG14e2kBTAJb8XrxzZrMOgSmDqtLaF76T0Z6YY2IHg=="
+        crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="../../../css/main.css">
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg py-3 bg-white shadow-sm navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/img/website-logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown me-0 me-md-3">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown me-0 me-md-3">
+                        <a class="nav-link " href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown me-0 me-md-3">
+                        <a class="nav-link " href="/products">Products</a>
+                        <a class="nav-link dropdown-toggle d-none" data-toggle="dropdown">
+                        </a>
+                        <ul class="dropdown-menu p-2">
+                            <li>
+                                <h4 class="dropdown-header">Product List</h4>
+                            </li>
+                            <li><a class="dropdown-item" href="home_decor.htm">Home and Decor</a></li>
+                            <li><a class="dropdown-item" href="candle_stand.htm">Candle Stand</a></li>
+                            <li><a class="dropdown-item" href="flower_pot.htm">Flower Pot</a></li>
+                            <li><a class="dropdown-item" href="/products">See More</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown me-0 me-md-3">
+                        <a class="nav-link " href="/contact">Contact Us</a>
+                    </li>
+                    <% if(isAuthenticated) { %>
+                    <li class="nav-item dropdown me-0 me-md-3">
+                        <a class="nav-link " href="/compose">Compose</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="/logout">Logout</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+<div class="content">
+    <section class="service p-5">
+        <div class="container">
+            <div class="row g-5 image-container">
+                <% categoryItems[0].productImages.forEach((product) =>{ %>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 gallery_img">
+                    <a href="/uploads/<%= product%>" class="image">
+                        <img src="/uploads/<%= product%>" alt="" class="border">
+                    </a>
+                </div>
+                <% }); %>
+                <% if(!categoryItems[0].productImages){%>
+                <p>No image available. <a href="/compose">Add Some.</a></p>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+<%- include("partials/footer") -%>
